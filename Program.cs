@@ -15,7 +15,7 @@ namespace ConsolePiTop
     {
         static void Main(string[] args)
         {
-            Speed fwSpeed = Speed.FromCentimetersPerSecond(10);
+            Speed fwSpeed = Speed.FromCentimetersPerSecond(20);
             Speed turnSpeed = Speed.FromCentimetersPerSecond(10);
             Speed revSpeed = Speed.FromCentimetersPerSecond(100);
             while (true)
@@ -23,7 +23,6 @@ namespace ConsolePiTop
                 Console.Write("Input: ");
                 var input = Console.ReadKey();
                 var sh = new SenseHat();
-                int n = 0;
                 Console.WriteLine(" ");
                 using (sh)
                 {
@@ -93,7 +92,7 @@ namespace ConsolePiTop
                             GetWeather();
                             break;
                         case (ConsoleKey.J):
-                            Console.WriteLine("Getting IMY and Magnetometer reading...");
+                            Console.WriteLine("Getting IMU and Magnetometer reading...");
                             GetIMU();
                             break;
                         default:

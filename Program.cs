@@ -15,7 +15,7 @@ namespace ConsolePiTop
     {
         static void Main(string[] args)
         {
-            Speed fwSpeed = Speed.FromCentimetersPerSecond(20);
+            Speed fwSpeed = Speed.FromCentimetersPerSecond(10);
             Speed turnSpeed = Speed.FromCentimetersPerSecond(10);
             Speed revSpeed = Speed.FromCentimetersPerSecond(100);
             while (true)
@@ -56,18 +56,18 @@ namespace ConsolePiTop
                             Console.Clear();
                             break;
                         case (ConsoleKey.S):
-                            sh.SetPixel(2,4,Color.Violet);
-                            sh.SetPixel(4,4,Color.Violet);
-                            sh.SetPixel(2,6,Color.Violet);
-                            sh.SetPixel(4,6,Color.Violet);
+                            sh.SetPixel(2,4,Color.Yellow);
+                            sh.SetPixel(4,4,Color.Yellow);
+                            sh.SetPixel(2,6,Color.Yellow);
+                            sh.SetPixel(4,6,Color.Yellow);
                             Console.WriteLine("Reversing...");
                             Reverse(turnSpeed);
                             Console.Clear();
                             break;
                         case (ConsoleKey.Z):
-                            sh.SetPixel(2,4,Color.Violet);
+                            sh.SetPixel(2,4,Color.Yellow);
                             sh.SetPixel(4,4,Color.Red);
-                            sh.SetPixel(2,6,Color.Violet);
+                            sh.SetPixel(2,6,Color.Yellow);
                             sh.SetPixel(4,6,Color.Red);
                             Console.WriteLine("Reversing counter-clockwise...");
                             ReverseLeft(turnSpeed);
@@ -75,11 +75,12 @@ namespace ConsolePiTop
                             break;
                         case (ConsoleKey.C):
                             sh.SetPixel(2,4,Color.Red);
-                            sh.SetPixel(4,4,Color.Violet);
+                            sh.SetPixel(4,4,Color.Yellow);
                             sh.SetPixel(2,6,Color.Red);
-                            sh.SetPixel(4,6,Color.Violet);
+                            sh.SetPixel(4,6,Color.Yellow);
                             Console.WriteLine("Reversing clockwise...");
                             ReverseRight(turnSpeed);
+                            Console.Clear();
                             break;
                         case (ConsoleKey.L):
                             sh.SetPixel(2,7,Color.Green);
@@ -97,6 +98,7 @@ namespace ConsolePiTop
                             break;
                         default:
                             sh.Fill(Color.Empty);
+                            Console.Clear();
                             break;
                     }
                 }

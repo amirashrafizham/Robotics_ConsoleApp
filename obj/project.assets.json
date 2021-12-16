@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {
+    "net6.0": {
       "AsyncIO/0.1.69": {
         "type": "package",
         "compile": {
@@ -3325,7 +3325,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net5.0": [
+    "net6.0": [
       "Iot.Device.Bindings >= 1.5.0",
       "System.Device.Gpio >= 1.5.0",
       "pi-top >= 1.0.439",
@@ -3348,7 +3348,7 @@
         "/home/pi/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net5.0"
+        "net6.0"
       ],
       "sources": {
         "/home/pi/localNuget": {},
@@ -3361,8 +3361,8 @@
         "https://www.powershellgallery.com/api/v2/": {}
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "projectReferences": {}
         }
       },
@@ -3373,8 +3373,8 @@
       }
     },
     "frameworks": {
-      "net5.0": {
-        "targetAlias": "net5.0",
+      "net6.0": {
+        "targetAlias": "net6.0",
         "dependencies": {
           "Iot.Device.Bindings": {
             "target": "Package",
@@ -3408,7 +3408,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/pi/.dotnet/sdk/5.0.207/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/home/pi/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
       }
     }
   }

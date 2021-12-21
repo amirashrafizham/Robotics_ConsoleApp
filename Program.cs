@@ -96,6 +96,9 @@ namespace ConsolePiTop
                             Console.WriteLine("Getting IMU and Magnetometer reading...");
                             GetIMU();
                             break;
+                        case (ConsoleKey.P):
+                            Environment.Exit(0);
+                            break;
                         default:
                             sh.Fill(Color.Empty);
                             Console.Clear();

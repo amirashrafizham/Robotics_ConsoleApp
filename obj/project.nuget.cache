@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5PEBe+kXvvTo8b/dz51JJWqkiQ2YEn+73sCyDIUuGMywoT4OHNFxyndhQzGerQxeHbch+gnZfVed8ho09O+R9g==",
+  "dgSpecHash": "BXhze63h5TSZ00xD+gch+5RnLKSwgP1lEgChI6d7wT77AtQSUGP42G/OeWLxsrjG6cF0aMqjvEpxmpJXt16fBQ==",
   "success": true,
-  "projectFilePath": "/home/pi/Desktop/ConsolePiTop/ConsolePiTop.csproj",
+  "projectFilePath": "/home/pi/Desktop/Robotics_ConsoleApp/ConsolePiTop.csproj",
   "expectedPackageFiles": [
     "/home/pi/.nuget/packages/asyncio/0.1.69/asyncio.0.1.69.nupkg.sha512",
     "/home/pi/.nuget/packages/iot.device.bindings/1.5.0/iot.device.bindings.1.5.0.nupkg.sha512",

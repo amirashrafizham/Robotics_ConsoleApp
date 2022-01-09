@@ -8,12 +8,13 @@ using System.Threading;
 using Iot.Device.Common;
 using Iot.Device.SenseHat;
 using System.Drawing;
+using System.Threading.Tasks;
 
 namespace ConsolePiTop
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             Speed fwSpeed = Speed.FromCentimetersPerSecond(10);
             Speed turnSpeed = Speed.FromCentimetersPerSecond(10);
@@ -34,7 +35,7 @@ namespace ConsolePiTop
                             sh.SetPixel(2, 6, Color.Purple);
                             sh.SetPixel(4, 6, Color.Purple);
                             Console.WriteLine("Moving forward...");
-                            Forward(fwSpeed);
+                            await Forward(fwSpeed);
                             Console.Clear();
                             break;
                         case (ConsoleKey.D):
@@ -43,7 +44,7 @@ namespace ConsolePiTop
                             sh.SetPixel(2, 6, Color.Purple);
                             sh.SetPixel(4, 6, Color.Blue);
                             Console.WriteLine("Turning clockwise...");
-                            TurnRight(turnSpeed);
+                            await TurnRight(turnSpeed);
                             Console.Clear();
                             break;
                         case (ConsoleKey.A):
@@ -52,7 +53,7 @@ namespace ConsolePiTop
                             sh.SetPixel(2, 6, Color.Blue);
                             sh.SetPixel(4, 6, Color.Purple);
                             Console.WriteLine("Turning counter-clockwise...");
-                            TurnLeft(turnSpeed);
+                            await TurnLeft(turnSpeed);
                             Console.Clear();
                             break;
                         case (ConsoleKey.S):
@@ -61,7 +62,7 @@ namespace ConsolePiTop
                             sh.SetPixel(2, 6, Color.Yellow);
                             sh.SetPixel(4, 6, Color.Yellow);
                             Console.WriteLine("Reversing...");
-                            Reverse(turnSpeed);
+                            await Reverse(turnSpeed);
                             Console.Clear();
                             break;
                         case (ConsoleKey.Z):
@@ -70,7 +71,7 @@ namespace ConsolePiTop
                             sh.SetPixel(2, 6, Color.Yellow);
                             sh.SetPixel(4, 6, Color.Red);
                             Console.WriteLine("Reversing counter-clockwise...");
-                            ReverseLeft(turnSpeed);
+                            await ReverseLeft(turnSpeed);
                             Console.Clear();
                             break;
                         case (ConsoleKey.C):
@@ -79,22 +80,22 @@ namespace ConsolePiTop
                             sh.SetPixel(2, 6, Color.Red);
                             sh.SetPixel(4, 6, Color.Yellow);
                             Console.WriteLine("Reversing clockwise...");
-                            ReverseRight(turnSpeed);
+                            await ReverseRight(turnSpeed);
                             Console.Clear();
                             break;
                         case (ConsoleKey.L):
                             sh.SetPixel(2, 7, Color.Green);
                             sh.SetPixel(5, 3, Color.Blue);
                             Console.WriteLine("Getting Ultrasonic reading...");
-                            GetUltraSonic();
+                            await GetUltraSonic();
                             break;
                         case (ConsoleKey.K):
                             Console.WriteLine("Getting weather reading...");
-                            GetWeather();
+                            await GetWeather();
                             break;
                         case (ConsoleKey.J):
                             Console.WriteLine("Getting IMU and Magnetometer reading...");
-                            GetIMU();
+                            await GetIMU();
                             break;
                         case (ConsoleKey.P):
                             Environment.Exit(0);
@@ -108,7 +109,7 @@ namespace ConsolePiTop
             }
         }
 
-        static void Forward(Speed rpmSpeed)
+        static async Task Forward(Speed rpmSpeed)
         {
 
             EncoderMotor mtrLeft;
@@ -126,7 +127,7 @@ namespace ConsolePiTop
             {
                 mtrRight.SetSpeed(rpmSpeed);
             }
-            Thread.Sleep(2000);
+            await Task.Delay(2000);
             using (mtrLeft)
             {
                 mtrLeft.Stop();
@@ -137,7 +138,7 @@ namespace ConsolePiTop
             }
         }
 
-        static void TurnRight(Speed rpmSpeed)
+        static async Task TurnRight(Speed rpmSpeed)
         {
 
             EncoderMotor mtrLeft;
@@ -146,13 +147,13 @@ namespace ConsolePiTop
             using (mtrLeft)
             {
                 mtrLeft.SetSpeed(rpmSpeed);
-                Thread.Sleep(2000);
+                await Task.Delay(2000);
                 mtrLeft.Stop();
             }
 
         }
 
-        static void TurnLeft(Speed rpmSpeed)
+        static async Task TurnLeft(Speed rpmSpeed)
         {
 
             EncoderMotor mtrRight;
@@ -163,12 +164,12 @@ namespace ConsolePiTop
             using (mtrRight)
             {
                 mtrRight.SetSpeed(rpmSpeed);
-                Thread.Sleep(2000);
+                await Task.Delay(2000);
                 mtrRight.Stop();
             }
         }
 
-        static void Reverse(Speed rpmSpeed)
+        static async Task Reverse(Speed rpmSpeed)
         {
 
             EncoderMotor mtrLeft;
@@ -188,7 +189,7 @@ namespace ConsolePiTop
             {
                 mtrRight.SetSpeed(rpmSpeed);
             }
-            Thread.Sleep(2000);
+            await Task.Delay(2000);
             using (mtrLeft)
             {
                 mtrLeft.Stop();
@@ -199,7 +200,7 @@ namespace ConsolePiTop
             }
         }
 
-        static void ReverseLeft(Speed rpmSpeed)
+        static async Task ReverseLeft(Speed rpmSpeed)
         {
 
             EncoderMotor mtrLeft;
@@ -211,12 +212,12 @@ namespace ConsolePiTop
             using (mtrLeft)
             {
                 mtrLeft.SetSpeed(rpmSpeed);
-                Thread.Sleep(2000);
+                await Task.Delay(2000);
                 mtrLeft.Stop();
             }
         }
 
-        static void ReverseRight(Speed rpmSpeed)
+        static async Task ReverseRight(Speed rpmSpeed)
         {
 
             EncoderMotor mtrRight;
@@ -227,12 +228,12 @@ namespace ConsolePiTop
             using (mtrRight)
             {
                 mtrRight.SetSpeed(rpmSpeed);
-                Thread.Sleep(2000);
+                await Task.Delay(2000);
                 mtrRight.Stop();
             }
         }
 
-        static void GetUltraSonic()
+        static async Task GetUltraSonic()
         {
             try
             {
@@ -241,6 +242,7 @@ namespace ConsolePiTop
                 frontUltraSound = expansionPlate.GetOrCreateUltrasonicSensor(DigitalPort.D3);
                 Console.WriteLine($"Distance of object infront of robot: {frontUltraSound.Distance.Centimeters:N2} cm");
                 Console.WriteLine("  ");
+                await Task.WhenAll();
             }
             catch (System.Exception)
             {
@@ -249,7 +251,7 @@ namespace ConsolePiTop
             }
         }
 
-        static void GetWeather()
+        static async Task GetWeather()
         {
             var sh = new SenseHat();
             using (sh)
@@ -262,6 +264,7 @@ namespace ConsolePiTop
                     Console.WriteLine($"Humidity: {sh.Humidity} %rH");
                     Console.WriteLine($"Pressure: {sh.Pressure} hPa");
                     Console.WriteLine("  ");
+                    await Task.WhenAll();
                 }
                 catch (System.Exception)
                 {
@@ -271,7 +274,7 @@ namespace ConsolePiTop
             }
         }
 
-        static void GetIMU()
+        static async Task GetIMU()
         {
             var sh = new SenseHat();
             using (sh)
@@ -284,6 +287,7 @@ namespace ConsolePiTop
                     Console.WriteLine($"Angular rate: {sh.AngularRate:N2} DPS");
                     Console.WriteLine($"Magnetic induction: {sh.MagneticInduction:N2} gauss");
                     Console.WriteLine("  ");
+                    await Task.WhenAll(); ;
                 }
                 catch (System.Exception)
                 {

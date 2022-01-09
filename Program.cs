@@ -127,8 +127,7 @@ namespace ConsolePiTop
             {
                 mtrRight.SetSpeed(rpmSpeed);
             }
-            //await Task.Delay(2000);
-            await Task.WhenAll();
+            await Task.Delay(2000);
             using (mtrLeft)
             {
                 mtrLeft.Stop();
@@ -148,8 +147,7 @@ namespace ConsolePiTop
             using (mtrLeft)
             {
                 mtrLeft.SetSpeed(rpmSpeed);
-                //await Task.Delay(2000);
-                await Task.WhenAll();
+                await Task.Delay(2000);
                 mtrLeft.Stop();
             }
 
@@ -166,8 +164,7 @@ namespace ConsolePiTop
             using (mtrRight)
             {
                 mtrRight.SetSpeed(rpmSpeed);
-                //await Task.Delay(2000);
-                await Task.WhenAll();
+                await Task.Delay(2000);
                 mtrRight.Stop();
             }
         }
@@ -192,8 +189,7 @@ namespace ConsolePiTop
             {
                 mtrRight.SetSpeed(rpmSpeed);
             }
-            //await Task.Delay(2000);
-            await Task.WhenAll();
+            await Task.Delay(2000);
             using (mtrLeft)
             {
                 mtrLeft.Stop();
@@ -216,8 +212,7 @@ namespace ConsolePiTop
             using (mtrLeft)
             {
                 mtrLeft.SetSpeed(rpmSpeed);
-                //await Task.Delay(2000);
-                await Task.WhenAll();
+                await Task.Delay(2000);
                 mtrLeft.Stop();
             }
         }
@@ -233,8 +228,7 @@ namespace ConsolePiTop
             using (mtrRight)
             {
                 mtrRight.SetSpeed(rpmSpeed);
-                //await Task.Delay(2000);
-                await Task.WhenAll();
+                await Task.Delay(2000);
                 mtrRight.Stop();
             }
         }

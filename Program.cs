@@ -65,7 +65,7 @@ namespace ConsolePiTop
                             await Reverse(turnSpeed);
                             Console.Clear();
                             break;
-                        case (ConsoleKey.Z):
+                        case (ConsoleKey.C):
                             sh.SetPixel(2, 4, Color.Yellow);
                             sh.SetPixel(4, 4, Color.Red);
                             sh.SetPixel(2, 6, Color.Yellow);
@@ -74,7 +74,7 @@ namespace ConsolePiTop
                             await ReverseLeft(turnSpeed);
                             Console.Clear();
                             break;
-                        case (ConsoleKey.C):
+                        case (ConsoleKey.Z):
                             sh.SetPixel(2, 4, Color.Red);
                             sh.SetPixel(4, 4, Color.Yellow);
                             sh.SetPixel(2, 6, Color.Red);

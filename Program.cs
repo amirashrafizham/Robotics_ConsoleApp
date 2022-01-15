@@ -119,15 +119,11 @@ namespace ConsolePiTop
             mtrLeft = expansionPlate.GetOrCreateEncoderMotor(EncoderMotorPort.M2); //Port M1 Default Forward
             mtrRight = expansionPlate.GetOrCreateEncoderMotor(EncoderMotorPort.M3); //Port M2 Default Reverse
             mtrRight.ForwardDirection = ForwardDirection.CounterClockwise;
-            using (mtrLeft)
-            {
-                mtrLeft.SetSpeed(rpmSpeed);
-            }
-            using (mtrRight)
-            {
-                mtrRight.SetSpeed(rpmSpeed);
-            }
-            await Task.Delay(2000);
+
+            mtrLeft.SetSpeed(rpmSpeed);
+            mtrRight.SetSpeed(rpmSpeed);
+            
+            await Task.Delay(2000); //Increasing or Decreasing this value will affect the duration of motor turning
             using (mtrLeft)
             {
                 mtrLeft.Stop();
@@ -181,14 +177,10 @@ namespace ConsolePiTop
             mtrRight = expansionPlate.GetOrCreateEncoderMotor(EncoderMotorPort.M3); //Port M2 Default Reverse 
             mtrLeft.ForwardDirection = ForwardDirection.CounterClockwise;
 
-            using (mtrLeft)
-            {
-                mtrLeft.SetSpeed(rpmSpeed);
-            }
-            using (mtrRight)
-            {
-                mtrRight.SetSpeed(rpmSpeed);
-            }
+            
+            mtrLeft.SetSpeed(rpmSpeed);
+            mtrRight.SetSpeed(rpmSpeed);
+            
             await Task.Delay(2000);
             using (mtrLeft)
             {

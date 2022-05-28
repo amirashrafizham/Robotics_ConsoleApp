@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ConsolePiTop
 {
-    class Program
+    class Robot
     {
         static async Task Main(string[] args)
         {

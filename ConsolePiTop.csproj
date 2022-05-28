@@ -6,10 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Iot.Device.Bindings" Version="1.5.0" />
-    <PackageReference Include="pi-top" Version="1.0.439" />
+    <PackageReference Include="Iot.Device.Bindings" Version="2.1.0" />
+    <PackageReference Include="pi-top" Version="1.0.447" />
     <PackageReference Include="pi-top.MakerArchitecture.Expansion" Version="1.0.439" />
-    <PackageReference Include="System.Device.Gpio" Version="1.5.0" />
+    <PackageReference Include="System.Device.Gpio" Version="2.1.0" />
   </ItemGroup>
 
 </Project>
